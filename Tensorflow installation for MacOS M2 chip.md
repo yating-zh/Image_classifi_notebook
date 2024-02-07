@@ -38,6 +38,16 @@ It will open a browser window, run a script to test.
 ## Using tensorflow-metal to accelerate training with Metal on Mac GPUs
 ###### 1. follow the official document steps:
 https://developer.apple.com/metal/tensorflow-plugin/
+    
+    Tips:
+    1. Creates a new virtual environment named venv-metal:
+    > $ python3 -m venv ~/venv-metal
+    
+    2. Activate venv-metal environment: 
+    > $ source ~/venv-metal/bin/activate
+
+    3. Switch back (deactivate)from venv-metal environment:
+    > $ deactivate
 
 ###### 2. varify GPU is available using the script:
     import sys
