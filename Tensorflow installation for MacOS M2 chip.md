@@ -35,6 +35,36 @@ Open jupyter notebook
 
 It will open a browser window, run a script to test.
 
+## Using tensorflow-metal to accelerate training with Metal on Mac GPUs
+###### 1. follow the official document steps:
+https://developer.apple.com/metal/tensorflow-plugin/
+
+###### 2. varify GPU is available using the script:
+    import sys
+    
+    import tensorflow.keras
+    import pandas as pd
+    import sklearn as sk
+    import scipy as sp
+    import tensorflow as tf
+    import platform
+    import keras
+    
+    print(f"Standalone Keras Version: {keras.__version__}")
+    
+    print(f"Python Platform: {platform.platform()}")
+    print(f"Tensor Flow Version: {tf.__version__}")
+    # print(f"Keras Version: {tensorflow.keras.__version__}")
+    print(f"Standalone Keras Version: {keras.__version__}")
+    
+    # print(f"Keras Version: {tf.keras.__version__}")
+    print()
+    print(f"Python {sys.version}")
+    print(f"Pandas {pd.__version__}")
+    print(f"Scikit-Learn {sk.__version__}")
+    print(f"SciPy {sp.__version__}")
+    gpu = len(tf.config.list_physical_devices('GPU'))>0
+    print("GPU is", "available" if gpu else "NOT AVAILABLE")
 
 ## Conda command should know
 1. Set the conda's base environment not be activated on startup:
