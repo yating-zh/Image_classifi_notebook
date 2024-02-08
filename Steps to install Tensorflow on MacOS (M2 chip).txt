@@ -1,0 +1,68 @@
+
+1. Go to https://docs.anaconda.com/free/miniconda/, download Minicanda macOS version(Miniconda3 macOS Apple M1 64-bit pkg), install the package
+
+2. "(base)" will appear in front of the user@MacBook-Pro, check the installed Python version:
+
+(base) user@MacBook-Pro ~ % python
+Python 3.10.8 (v3.10.8:aaaf517424, Oct 11 2022, 10:14:40) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import platform
+>>> platform.platform()
+'macOS-14.3-arm64-arm-64bit'
+
+3. Install Xcode:
+
+(base) user@MacBook-Pro ~ % xcode-select --install
+
+4. Install jupyter:
+
+(base) user@MacBook-Pro ~ % conda install -y jupyter
+
+5. Deactivate the miniconda environment, back to the original system:
+
+(base) user@MacBook-Pro ~ % conda deactivate
+
+6. download the yml file "tensorflow-apple-metal.yml" to the user's root directory
+
+user@MacBook-Pro ~ % ls
+(The "tensorflow-apple-metal.yml" will show up)
+
+7. Create a conda environment named "tensorflow" using the yml file:
+
+user@MacBook-Pro ~ % conda env create -f tensorflow-apple-metal.yml -n tensorflow 
+
+8. Activate the newly created conda environment tensorflow:
+
+user@MacBook-Pro ~ % conda activate tensorflow
+
+9. The following command registers the tensorflow environment
+
+(tensorflow) user@MacBook-Pro ~ % python -m ipykernel install --user --name tensorflow --display-name "Python 3.10 (tensorflow)"
+
+10. Run jupyter notebook
+
+(tensorflow) user@MacBook-Pro ~ % jupyter notebook
+
+11. Installed. Create a new notebook to run this script for verification. 
+
+# What version of Python do you have?
+import sys
+
+import tensorflow.keras
+import pandas as pd
+import sklearn as sk
+import tensorflow as tf
+import keras
+
+
+print(f"Tensor Flow Version: {tf.__version__}")
+print(f"Keras Version: {keras.__version__}")
+print()
+print(f"Python {sys.version}")
+print(f"Pandas {pd.__version__}")
+print(f"Scikit-Learn {sk.__version__}")
+gpu = len(tf.config.list_physical_devices('GPU'))>0
+print("GPU is", "available" if gpu else "NOT AVAILABLE")
+
+
+
