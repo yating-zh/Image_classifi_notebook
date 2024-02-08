@@ -1,3 +1,5 @@
+### (!!! the installation of metal environment is not compatible with openCV)
+
 ## Tensorflow installation for MacOS M2 chip
 ###### 1. Install Homebrew (https://brew.sh/) if not installed yet.
 ###### 2. Install Xcode Command Line Tools
