@@ -5,6 +5,7 @@
 
 2. To activate Conda environment:
 > $ conda activate base
+
 > $ conda activate tensorflow (tensorflow is the name of the env)
 
 3. List all the conda environment
